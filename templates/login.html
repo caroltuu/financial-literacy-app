@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class= "title">
+        <h1>Login</h1>
+    </div>
+    <div class = "form_container">
+        <form method="POST" action="/login">
+            <!--- Can delete
+            <input type="radio" name="user_type" value="parent"> Parent
+            <input type="radio" name="user_type" value="child"> Child
+            <br><br>
+            -->
+            
+            <label for="account_id">Account ID:</label>
+            <input type="text" name="account_id" id="account_id" required>
+            <br><br>
+            
+            
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+

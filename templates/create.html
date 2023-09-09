@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class = "title">
+        <h1>Create</h1>
+    </div>
+    <div form = "container">
+        <form method="POST" action="/submit">
+        
+            <label for="parentFirst">Parent First Name:</label>
+            <input type="text" name="parentFirst" id="parentFirst" required>
+            <br><br>
+            
+            <label for="parentLast">Parent Last Name:</label>
+            <input type="text" name="parentLast" id="parentLast" required>
+            <br><br>
+
+            <label for="childFirst">Child First Name:</label>
+            <input type="text" name="parentLast" id="parentLast" required>
+            <br><br>
+
+            <label for="childLast">Child Last Name:</label>
+            <input type="text" name="childLast" id="childLast" required>
+            <br><br>
+            
+            <input type="submit" value="create">
+
+
+        </form>
+    </div>
+</body>
+</html>
+
