@@ -70,7 +70,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 - [x] Stocks
  - [x] Taipy candlestick charts
  - [ ] Display stock price
- - [ ] Buy / Se;;
+ - [ ] Buy / Sell
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
