@@ -45,12 +45,21 @@ Expanding on paper trading (real time buy and sell options), incorporating analy
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Getting Started
 
+Use a pip install to get the requirements loaded locally.
+
+### Prerequisites
+
+* requirements
+  ```sh
+  pip install -r requirements.txt
+  ```
 
 ### Built With
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [![Flask]
+* Flask
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
