@@ -2,15 +2,18 @@
 <html>
 <head>
     <title>Post Login</title>
-    <!-- Add your CSS links and stylesheets here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-    
     <div class="title">
-        <h1>You made an account! Your parent account ID is: {{ parID }}</h1>
+        <h1>You made an account!</h1><br>
     </div>
-    <p>Time to log in:</p>
-    <a href="login" class="button">Click here to log in</a>
+    <div class = "description">
+        <h2>Your parent account ID is: {{ parent_id }}</h2><br>
+        <h2>Your child account ID is: {{ child_id }}</h2><br>
+        <h3>Please save these somewhere safe or you will lose access to your account forever :&#41;</h3>
+        <a href="login" class="button">Log in</a>
+    </div>
 </body>
 </html>

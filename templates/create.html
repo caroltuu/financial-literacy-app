@@ -3,13 +3,19 @@
 <head>
     <title>Create Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        form label {
+            display: block;
+            margin-bottom: 2px;
+        }
+    </style>
 </head>
 <body>
     <div class = "title">
-        <h1>Create</h1>
+        <h1>Create Account</h1>
     </div>
-    <div form = "container">
-        <form method="POST" action="/submit">
+    <div class = "form_container">
+        <form method="POST" action="/create">
         
             <label for="parentFirst">Parent First Name:</label>
             <input type="text" name="parentFirst" id="parentFirst" required>
@@ -20,14 +26,22 @@
             <br><br>
 
             <label for="childFirst">Child First Name:</label>
-            <input type="text" name="parentLast" id="parentLast" required>
+            <input type="text" name="childFirst" id="childFirst" required>
             <br><br>
 
             <label for="childLast">Child Last Name:</label>
             <input type="text" name="childLast" id="childLast" required>
             <br><br>
+
+            <label for="childLast">Parent Balance:</label>
+            <input type="number" name="parentBalance" id="parentBalance" required>
+            <br><br>
+
+            <label for="childDeposit">Child Deposit:</label>
+            <input type="number" name="childBalance" id="childBalance" required>
+            <br><br>
             
-            <input type="submit" value="create">
+            <input type="submit" value="Create" name="smallButton">
 
 
         </form>

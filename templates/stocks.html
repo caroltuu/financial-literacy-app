@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class = "chart">
+        <taipy:chart type="candlestick" x="Date" open="Open" close="Close"
+        low="Low" high="High">{data}</taipy:chart>
+    </div>  
+    <div class = "description">
+        <h2>Type in a ticker to look up!</h2>
+        <div class = "form_container">
+            <form id="tickerForm" value="tickerForm" class="tickerForm" method="POST"></form>
+        </div>
+        <div class = "period_dropdown">
+            <label for="period">Select Period Range:</label>
+            <select name="period" id="period">
+                <option value="5d"></option>
+                <option value="1mo"></option>
+                <option value="3mo"></option>
+                <option value="6mo"></option>
+                <option value="1y"></option>
+                <option value="2y"></option>
+            </select>
+        </div>
+        <div class = "interval_dropdown">
+            <label for="interval">Select Interval Range:</label>
+            <select name="interval" id="interval">
+                <option value="1h"></option>
+                <option value="1wk"></option>
+                <option value="1mo"></option>
+            </select>
+        </div>
+    </div>
+</body>

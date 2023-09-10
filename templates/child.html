@@ -2,9 +2,38 @@
 <html>
 <head>
     <title>Child Bank</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div></div>
+    <div class="title_container">
+        <div class="childBalance">
+            <h4>My Balance: {{ childBalance }}</h1>
+        </div>
+    </div>
+    <div class = "select_container">
+        <h2>Type in a ticker to look up!</h2>
+        <div class = "form_container">
+            <form id="combinedForm" value="combinedForm" class="combinedForm" method="POST", action="/process-ticker">
+                <input type="text" name="ticker" placeholder="Enter Stock Ticker" required>
+
+                <label for="period">Select Period Range:</label>
+                <select name="period" id="period">
+                    <option value="5">5d</option>
+                    <option value="30">1mo</option>
+                    <option value="90">3mo</option>
+                    <option value="180">6mo</option>
+                    <option value="365">1y</option>
+                    <option value="780">2y</option>
+                </select>
+                <label for="interval">Select Interval Range:</label>
+                <select name="interval" id="interval">
+                    <option value="1h">1h</option>
+                    <option value="1wk">1wk</option>
+                    <option value="1mo">1mo</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

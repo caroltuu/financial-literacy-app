@@ -2,22 +2,180 @@
 <html>
 <head>
     <title>Parent Interface</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-    <header>
-        <h1>hello</h1>
-        
-    </header>
-    
     <main>
+        <div class="title_container"> 
+            <div class="parentBalance">
+                <h4>Your Balance: {{ parentBalance }}</h1>
+            </div>
+            <div class="childBalance">
+                <h4>Child's Balance: {{ childBalance }}</h1>
+            </div>
+        </div>
+        <div class = funcButtonContainer>
+            <button class = "funcButton" onclick="openPopup('depositPopup')">Deposit to Child</button>
+            <button class = "funcButton" onclick="openPopup('withdrawPopup')">Withdraw from Child</button>
+        </div>
         
+       
+       <div id="depositPopup" class="popup">
+            <form id="depositForm" value = "deposit" class="popup-content" method="POST">
+                <input type="hidden" name="action" value="deposit">
+                <h2>Deposit to Child($)</h2>
+                <input type="number" name="amount" id="depositAmount" min="0" value="depositAmount">
+                <br>
+                <button type="button" class="popButton" onclick="closePopup('depositPopup')">Cancel</button>
+                <input type="submit" value="Submit" onclick="closePopup('depositPopup')">
+            </form>
+        </div>
+
+        
+        <div id="withdrawPopup" class="popup">
+            <form id="withdrawForm" value = "withdraw" class="popup-content" method="POST">
+                <input type="hidden" name="action" value="withdraw">
+                <h2>Withdraw from Child ($)</h2>
+                <input type="number" name="amount" id="withdrawAmount" min="0" value="withdrawAmount">
+                <br>
+                <button type="button" class="popButton" onclick="closePopup('withdrawPopup')">Cancel</button>
+                <input type="submit" value="Submit" onclick="closePopup('withdrawPopup')">
+            </form>
+        </div>
     </main>
 
-    <footer>
-        
-    </footer>
+    <script>
+        function openPopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.classList.add("open-popup");
+        }
+    
+        function closePopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.classList.remove("open-popup");
 
+        }
+        
+
+    </script>
+ <!--
+
+
+            var data = { inputValue: "your_amount_value_here" };
+
+            fetch('/child-receive-deposit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            }).then(data => {
+                console.log(data);
+            }).catch(error => {
+                console.log('There was a problem with the fetch operation:', error.message);
+            });
+
+
+    function submitValue(actionId) {
+            var popupAction = actionId === 'depositAmount' ? 'deposit' : 'withdraw';
+            document.getElementById('popupAction').value = popupAction;
+            document.getElementById('popupForm').submit();
+}
+    <script>
+       
+        function openPopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.style.display = "block";
+        }
+
+        function closePopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.style.display = "none";
+        }
+
+        function submitValue(inputId) {
+            // Get the integer input value
+            var inputValue = document.getElementById(inputId).value;
+            
+            // Check if it's a valid integer (you can add more validation)
+            if (Number.isInteger(parseFloat(inputValue))) {
+                // alert("You entered: " + inputValue);
+                closePopup(inputId.replace("Input", "Popup"));
+            } else {
+                alert("Please enter a valid integer.");
+            }
+        }
+      
+    </script>
+      -->
 </body>
 </html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Parent Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <main>
+        <div class="title_container"> 
+            <div class="parentBalance">
+                <h1>Your Current Balance: {{ parentBalance }}</h1>
+            </div>
+            <div class="childBalance">
+                <h1>Child's Balance: {{ childBalance }}</h1>
+            </div>
+        </div>
+        <div class="function_container">
+            <div class="deposit">
+                <button type="button" class="btn" onclick="openPopup('depositPopup')">Deposit To Child</button>
+                <div class="popup" id="depositPopup" style="display: none;">
+                    <form method="POST" action="/transfer">
+                        <label for="depositAmount">Amount ($): </label>
+                        <input type="number" name="depositAmount" id="depositAmount" min="1" required> 
+                        <input type="submit" value="Transfer">
+                    </form>
+                    <button class="close-btn" onclick="closePopup('depositPopup')">&#10006;</button>
+                </div>
+            </div>
+            <div class="withdraw">
+                <button type="button" class="btn" onclick="openPopup('withdrawPopup')">Withdraw From Child</button>
+                <div class="popup" id="withdrawPopup" style="display: none;">
+                    <form method="POST" action="/transfer">
+                        <label for="withdrawAmount">Amount ($): </label>
+                        <input type="number" name="withdrawAmount" id="withdrawAmount" min="1" required> 
+                        <input type="submit" value="Transfer">
+                    </form>
+                    <button class="close-btn" onclick="closePopup('withdrawPopup')">&#10006;</button>
+                </div>
+            </div>
+            <button><a href="funcButton">Set Limits</a></button>
+        </div>
+    </main>
+
+<script>
+    function openPopup(popupId) {
+        var popup = document.getElementById(popupId);
+        popup.style.display = "block";
+    }
+
+    function closePopup(popupId) {
+        var popup = document.getElementById(popupId);
+        popup.style.display = "none";
+    }
+</script>
+
+</body>
+</html> -->
